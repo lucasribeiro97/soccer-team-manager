@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-async-errors');
 const validateTeam = require('./middlewares/validateTeam');
 const existingID = require('./middlewares/existingId');
 const teams = require('./utils/teams');

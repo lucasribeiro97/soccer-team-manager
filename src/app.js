@@ -4,10 +4,12 @@ const existingID = require('./middlewares/existingId');
 const teams = require('./utils/teams');
 
 const app = express();
+const apiCredentials = require('./middlewares/apiCredentials');
 
 let nextId = 3;
 
 app.use(express.json());
+app.use(apiCredentials);
 
 app.get('/teams', (req, res) => res.status(200).json({ teams }));
 

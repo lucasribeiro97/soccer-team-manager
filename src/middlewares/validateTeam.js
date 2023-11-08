@@ -1,9 +1,8 @@
 const validateTeam = (req, res, next) => {
-  const requiredProperties = ['name', 'initials'];
-  if (requiredProperties.every((property) => req.body[property])) {
-    return next();
-  } 
-    res.sendStatus(400);
+  const { name, initials } = req.body;
+  if (!name) return res.status(400).json({ message: 'O campo "name" é obrigatório' });
+  if (!initials) return res.status(400).json({ message: 'O campo "initials" é obrigatório' });
+  next();
 };
 
 module.exports = validateTeam;
